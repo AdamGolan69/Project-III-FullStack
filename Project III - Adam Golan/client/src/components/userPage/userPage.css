@@ -1,0 +1,255 @@
+/* Macro Design */
+.userPage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    animation: intoPage .6s ease-in-out forwards;
+}
+.userPage>header{
+    position: relative;
+    width: 100%;
+}
+.userPage>.container{
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+}
+.userPage>.container::-webkit-scrollbar{
+    background: transparent;
+    width: .5%;
+}
+.userPage>.container::-webkit-scrollbar-thumb{
+    background: #45aaf2;
+}
+/* Header */
+.userPage>header>p, .userPage>header>a, .userPage>header>.panel{
+    position: absolute;
+    margin: 0;
+    margin-left:.5em;
+    padding: .3em .5em;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 0 0 .5em .5em;
+    color: #45aaf2;
+    text-transform: capitalize; 
+    transition: .5s ease-in-out;
+    animation: upperTags .6s linear forwards;
+}
+.userPage>header>a{
+    right: 0;
+    margin-right: .5em;
+    cursor: pointer;
+}
+.userPage>header>.panel{
+    margin: 0;
+    left: 15%;
+    background: rgba(69, 170, 242, .6);
+}
+.userPage>header>.panel>input{
+    border: none;
+    background: transparent;
+    color: white;
+    margin-right: 1em;
+    border-bottom: .1em solid white;
+    line-height: 2em;
+    font-size: 1em;
+    width: 50%;
+}
+.userPage>header>.panel>input::placeholder{
+    color: white;
+}
+.userPage>header>.panel>button{
+    width: 25%;
+    height: 2.2em;
+    font-family: 'Livvic', sans-serif;
+    border: none;
+    margin-left: .5em;
+    border-radius: .2em;
+    color: white;
+    background: #45aaf2;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.userPage>header>.panel>i{
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+    color: white;
+    padding: .4em;
+}
+/* Cards Search */
+.userPage>.container .card.hide{
+    opacity: 0;
+    transform: scale(.6);
+}
+.userPage>.container .card.removed{
+    margin:0;
+    width: 0;
+}
+/* // Day Picker Design */
+.userPage .DayPicker.DayPicker.Selectable{
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: white;
+    box-shadow: .4em .4em 1em rgba(0, 0, 0, .5);
+    transition: all .5s ease-in-out;
+    height: 86%;
+    overflow: hidden;
+    overflow-y: auto;
+    border-radius: .3em;
+}
+.userPage .DayPicker.DayPicker.Selectable::-webkit-scrollbar{
+    width: .5em;
+}
+.userPage .DayPicker.DayPicker.Selectable::-webkit-scrollbar-thumb{
+    background: #45aaf2;
+    border-radius: .5em;
+}
+.userPage .DayPicker.DayPicker.Selectable.show{
+    top: 0;
+    filter: blur(0);
+}
+.userPage .DayPicker.DayPicker--interactionDisabled.Selectable{
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: white;
+    box-shadow: .4em .4em 1em rgba(0, 0, 0, .5);
+    transition: all .5s ease-in-out;
+    z-index: 2;
+}
+.userPage .DayPicker.DayPicker--interactionDisabled.Selectable.show{
+    top: 0;
+    filter: blur(0);
+}
+.userPage .DayPicker-Day--disabled{
+    color: #778796 !important;
+}
+.userPage .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end) {
+    background-color: #cfe8ff !important;
+    color: #4a90e2;
+}
+.userPage .DayPicker-Day--outside{
+    color: #c1cad4 !important;
+}
+.userPage .Selectable .DayPicker-Day {
+    border-radius: 0 !important;
+}
+.userPage .Selectable .DayPicker-Day--start {
+    visibility: visible;
+    background: linear-gradient(to right,#45aaf2 60%, #cfe8ff)!important;
+    color: white !important;
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+}
+.userPage .Selectable .DayPicker-Day--end {
+    visibility: visible;
+    background: linear-gradient(to left,#45aaf2 60%, #cfe8ff)!important;
+    color: white !important;
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
+}
+.userPage .DayPicker-Day.DayPicker-Day--disabled.DayPicker-Day--today{
+    color: #c0392b !important;
+}
+/* Different Medias */
+@media (min-width:320px){
+    .userPage>header{
+        height: 4%;
+    }
+    .userPage>.container{
+        height: 91%;
+    }
+    .userPage>header>p>i{
+        outline: none;
+        display: inline-block;
+        padding: .1em;
+        border: .2em solid #45aaf2;
+        border-radius: 50%;
+        box-shadow:.2em .2em .3em gray;
+        margin-left: .2em;
+    }
+    .userPage>header>.panel{
+        display: none;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .userPage>header>.panel>button{
+        position: relative;
+        margin-top: .6em;
+        margin-bottom: .6em;
+    }
+}
+@media (min-width:480px){
+
+}
+@media (min-width: 600px){
+    .userPage>header{
+        height: 7%;
+        width: 100%;
+    }
+    .userPage>.container{
+        height: 93%;
+    }
+    .userPage>header>p>i{
+        display: none;
+    }
+    .userPage>header>.panel{
+        display: block;
+        width: 50%;
+        left: 30%;
+    }
+    .userPage>header>.panel>button{
+        position: relative;
+        margin-top: .6em;
+        margin-bottom: .6em;
+    }
+    .userPage>header>.panel>input{
+        width: 65%;
+    }
+    .userPage>header>.panel>i{
+        width: 0;
+        display: none;
+    }
+}
+@media (min-width: 801px){
+    
+}
+@media (min-width: 1025px){
+    .userPage>header>.panel{
+        width: 40%;
+    }
+}
+@media (min-width: 1281px){
+    .userPage>header>.panel{
+        width: 30%;
+    }
+}
+/* Animations & Transitions @ Medias*/
+@media (min-width:320px){
+    .userPage>header.searchMode{
+        height: 6.5%;
+    }
+    .userPage>header>p.searchMode{
+        opacity: 0;
+    }
+    .userPage>header>a.searchMode{
+        opacity: 0;
+    }
+    .userPage>header>.panel.searchMode{
+        display: block;
+    }
+}

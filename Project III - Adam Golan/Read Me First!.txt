@@ -1,0 +1,16 @@
+Installations:
+1 - cd server
+    npm i
+2 - cd client
+    npm i
+Initiate Project Using Visual Studio Code:
+Terminal 1 - cd server
+	     nodemon app
+Terminal 2 - cd server
+	     nodemon sockets
+Terminal 3 - cd client
+	     npm start
+Admin: ADMIN
+       lltr
+User: golan69
+      3333		

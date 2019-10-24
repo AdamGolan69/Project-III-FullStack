@@ -1,0 +1,211 @@
+/* Macro Design */
+.followed{
+    display: block;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+.followed>h2{
+    position: relative;
+    text-align: center;
+    text-transform: capitalize;
+    color: white;
+    font-size: 2.5rem;
+    text-decoration: underline;
+}
+.followed>hr{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    height: .2rem;
+    background: #45aaf2;
+}
+/* Content Design */
+/* // Cards Design */
+.followed .card{
+    position: relative;
+    flex: content;
+    overflow: hidden;
+    margin: .5em;
+    display: inline-block;
+    position: relative;
+    background: white;
+    width: 20em;
+    height: 20em;
+    border-radius: .5em;
+    transition: .5s ease-in-out;
+    animation: cardLoad .5s ease-in-out;
+}
+.followed .card.blurred{
+    background: rgba(0, 0, 0, .6)
+}
+.followed .card.blurred>*{
+    filter: blur(.2em);
+}
+/* // Header Section */
+.followed .card>.edit{
+    position: absolute;
+    right: .3em;
+    top: .3em;
+    color: white;
+    z-index: 1;
+    cursor: pointer;
+    transition: all .8s ease-in-out;
+}
+.followed .card>.edit.blurred{
+    cursor: auto;
+}
+.followed .card .edit>input{
+    display: none;
+}
+.followed .card .edit>i{
+    font-size: 2em;
+}
+.followed .card>h3{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25%;
+    transform: translateY(-45%);
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+    z-index: 1;
+}
+.followed .card>.image{
+    background: black;
+    width: 100%;
+    height: 11.25em;
+    overflow: hidden;
+}
+.followed .card img{
+    width: 100%;
+}
+/* // Content Section */
+.followed .card>.card-content{
+    position: absolute;
+    top: 58%;
+    margin-left: .6em;
+    z-index: 1;
+}
+.followed .card>.card-content>p:nth-of-type(1){
+    padding: 0 .2em;
+    width:fit-content;
+    background: black;
+    color:white;
+    font-weight:900;
+}
+.followed .card>.show-dates{
+    position: absolute;
+    bottom: .3em;
+    right: 1em;
+    border: .07em solid black;
+    border-radius: 3em;
+    width: 2em;
+    height: 2em;
+    font-size: 1em;
+    text-transform: capitalize;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color .6s ease-in-out, color .6s ease-in-out, filter .6s ease-in-out, width .2s ease-in-out;
+}
+.followed .card>.show-dates.show{
+    border-color: white;
+    color: white;
+    filter: blur(0);
+}
+.followed .card>.show-dates:hover{
+    width: 5em;
+}
+.followed .card>.show-dates>i{
+    position: absolute;
+    top: .4em;
+    right: .25em;
+    margin-left: .2em;
+    margin-right: .2em;
+}
+.followed .card>.show-dates>i::after{
+    content: attr(data-value);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-3.15em);
+    font-family: 'Livvic', sans-serif;
+}
+.followed .card>button{
+    position: absolute;
+    bottom: .4em;
+    left: 1em;
+    width: auto;
+    height: 2em;
+    padding: 0 .6em;
+    background: transparent;
+    border: .07em solid white;
+    color: white;
+    border-radius: 3em;
+    text-transform: capitalize;
+    font-size: 1em;
+    cursor: pointer;
+    visibility: hidden;
+    transition-property: visibility;
+    transition-delay: .2s;
+}
+.followed .card>button.show{
+    filter: blur(0);
+    visibility: visible;
+    transition: background .5s ease-in-out, color .5s ease-in-out;
+}
+.followed .card>button.show:hover{
+    color: black;
+    background: white;
+}
+/* Different Medias */
+@media (min-width:320px){
+    .followed .card .DayPicker.DayPicker--interactionDisabled.Selectable{
+        width: 78%;
+    }
+    .followed .card{
+        margin: 0;
+        width: 100%;
+        height: 20em;
+    }
+}
+@media (min-width:480px){
+    .followed .card{
+        position: relative;
+        margin: .5%;
+        width: 48%;
+        height: 20em;
+    }
+    
+    .followed .card .DayPicker.DayPicker--interactionDisabled.Selectable{
+        width: 100%;
+    }
+    .followed .card .DayPicker.DayPicker--interactionDisabled.Selectable .DayPicker-wrapper{
+        transform: scale(.9);
+    }
+}
+@media (min-width: 600px){
+    .followed .card .DayPicker.DayPicker--interactionDisabled.Selectable{
+        width: 90%;
+    }
+    .followed .card .DayPicker.DayPicker--interactionDisabled.Selectable .DayPicker-wrapper{
+        transform: scale(1);
+    }
+}
+@media (min-width: 801px){
+    
+}
+@media (min-width: 1025px){
+    .followed .card>.show-dates{
+        width: 2em;
+    }
+    .followed .card{
+        width: 30%;
+    }
+}
+@media (min-width: 1281px){
+    .followed .card{
+        width: 22%;
+    }
+}

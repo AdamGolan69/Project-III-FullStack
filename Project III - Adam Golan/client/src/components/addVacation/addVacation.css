@@ -1,0 +1,221 @@
+/* Macro Design */
+.addVacation{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, .8);
+    z-index: 0;
+    opacity: 0;
+    transition: .5s;
+}
+.addVacation.show{
+    z-index: 3;
+    opacity: 1;
+}
+/* Form Design */
+.addVacation>form{
+    position: absolute;
+    border-radius: 2em;
+    background: whitesmoke;
+    transform: translateY(-50%) scale(.7);
+    opacity: 1;
+    transition: .5s;
+}
+.addVacation>form.show{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+.addVacation>form>i{
+    position: absolute;
+    cursor: pointer;
+}
+.addVacation>form>table{
+    position: relative;
+    display: flex;
+}
+.addVacation>form>table>tbody{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.addVacation>form>table tr{
+    position: relative;
+    display: flex;
+}
+.addVacation>form>table td{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+.addVacation>form>table>tbody>tr>td:nth-of-type(1){
+    align-self: center;
+    width: 30%;
+}
+.addVacation>form>table>tbody>tr>td:nth-of-type(2){
+    width: 88.5%;
+}
+.addVacation>form>table>tbody>tr:nth-of-type(3)>td>i{
+    position: absolute;
+    cursor: pointer;
+    z-index: 4;
+    color: #8B9898;
+}
+.addVacation>form td:nth-of-type(odd){
+    position: relative;
+    text-align: right;
+    text-transform: capitalize;
+}
+.addVacation table td input::placeholder, .addVacation table td textarea::placeholder{
+    color: #2f3542;
+    font-size: 1em;
+    text-align: center;
+    text-transform: capitalize;
+}
+.addVacation table td textarea::placeholder{
+    transform: translateY(50%);
+}
+.addVacation table td input, .addVacation table td textarea{
+    margin-top: .7em;
+    font-size: 1em;
+    text-align: center;
+}
+.addVacation table td textarea{
+    resize: none;
+}
+/* Image Uploader */
+.addVacation>form>.fileUploader {
+    position: relative;
+}
+.addVacation>form>.fileUploader .uploadPictureContainer{
+    width: 45%;
+}
+/* Day Picker */
+.addVacation .DayPicker.Selectable{
+    display: flex;
+    position: relative;
+    left: 0;
+    top: 0;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+.addVacation .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end) {
+    background-color: #cfe8ff !important;
+    color: #45aaf2 !important;
+}
+.addVacation .Selectable .DayPicker-Day {
+    position: relative;
+    border-radius: 0 !important;
+}
+.addVacation .Selectable .DayPicker-Day--start {
+    visibility: visible;
+    background: linear-gradient(to right,#45aaf2 60%, #cfe8ff)!important;
+    color: white !important;
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+}
+.addVacation .Selectable .DayPicker-Day--end {
+    visibility: visible;
+    background: linear-gradient(to left,#45aaf2 60%, #cfe8ff)!important;
+    color: white !important;
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
+}
+.adminPage .DayPicker-Day.DayPicker-Day--disabled.DayPicker-Day--today{
+    color: #c0392b !important;
+}
+.addVacation button{
+    width: auto;
+    margin-left: .8em;
+    padding: .3em .7em;
+    height: 2.2em;
+    font-family: 'Livvic', sans-serif;
+    border: none;
+    border-radius: .8em;
+    color: white;
+    background: #45aaf2;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.addVacation label{
+    text-transform: capitalize;
+    color: #c0392b;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.addVacation label>input{
+    display: none;
+}
+.addVacation button:disabled{
+    color: black;
+    cursor: not-allowed;
+}
+/* Different Medias */
+@media (min-width:320px){
+    .addVacation>form{
+        width: 100%;
+        padding: 2em .5em;
+    }
+    .addVacation>form>i{
+        left: 5%;
+        top: 1.5%;
+    }
+    .addVacation>form>table{
+        width: 100%;
+        font-size: .8em;
+    }
+    .addVacation>form>button{
+        margin-top: .5em;
+        position: relative;
+    }
+    .addVacation>form input, .addVacation>form textarea{
+        width: 100%;
+    }
+    .addVacation .DayPicker.Selectable{
+        width: 100%;
+        transform: scale(.9);
+    }
+    .addVacation>form>table>tbody>tr:nth-of-type(3)>td>i{
+        right: 40%;
+        top: 12%;
+    }
+}
+@media (min-width:480px){
+    .addVacation>form{
+        width: 70%;
+        align-self: center;
+        padding: 1.8em .5em;
+    }
+}
+@media (min-width: 600px){
+    .addVacation>form{
+        width: 55%;
+        padding: 1.6em .5em;
+    }
+}
+@media (min-width: 801px){
+    .addVacation>form{
+        width: 45%;
+        padding: 1.6em .5em;
+    }
+}
+@media (min-width: 1025px){
+    .addVacation>form{
+        width: 35%;
+        padding: 1.6em .5em;
+    }
+    .addVacation>form>table>tbody>tr:nth-of-type(3)>td>i{
+        right: 45%;
+    }
+}
+@media (min-width: 1281px){
+    .addVacation>form{
+        width: 27%;
+        padding: 1.6em .5em;
+    }
+}

@@ -1,0 +1,483 @@
+/* Macro Design */
+.adminPage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: intoPage .6s ease-in-out forwards;
+}
+.adminPage>header{
+    position: relative;
+    width: 100%;
+    transition: .5s ease-in-out;
+}
+.adminPage>.container{
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+    transition: .5s ease-in-out;
+}
+.adminPage>.container::-webkit-scrollbar{
+    background: transparent;
+    width: .5%;
+}
+.adminPage>.container::-webkit-scrollbar-thumb{
+    background: #45aaf2;
+}
+/* Content Design */
+/* // Header */
+.adminPage>header>p, .adminPage>header>a, .adminPage>header>.search{
+    position: absolute;
+    margin: 0;
+    margin-left:.5em;
+    padding: .3em .5em;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 0 0 .5em .5em;
+    color: #45aaf2;
+    text-transform: capitalize; 
+    transition: .5s ease-in-out;
+    animation: upperTags .6s linear forwards;
+}
+.adminPage>header>.search{
+    margin: 0;
+    background: rgba(0, 0, 0, .5);
+}
+.adminPage>header>a{
+    right: 0;
+    margin-right: .5em; 
+}
+.adminPage>header>.search>input{
+    border: none;
+    background: transparent;
+    border-bottom: .1em solid white;
+    color: white;
+    line-height: 2em;
+    font-size: 1em;
+    width: 50%;
+}
+.adminPage>header>.search>input::placeholder{
+    color: lightgray;
+    text-transform: capitalize;
+}
+.adminPage>header>.search>button{
+    width: auto;
+    margin-left: .8em;
+    padding: .3em .7em;
+    height: 2.2em;
+    font-family: 'Livvic', sans-serif;
+    border: none;
+    border-radius: .2em;
+    color: white;
+    background: #45aaf2;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/* Container */
+/* // Cards Macro Design */
+.adminPage>.container>.card{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background: white;
+    transition: .5s ease-in-out;
+    animation: cardLoad .5s ease-in-out alternate;
+}
+.adminPage>.container>.card.hide{
+    opacity: 0;
+    transform: scale(.6);
+}
+.adminPage>.container>.card.removed{
+    margin:0;
+    width: 0;
+}
+.adminPage>.container>.card.blurred{
+    background: rgba(0, 0, 0, .6)
+}
+.adminPage>.container>.card.blurred>*{
+    filter: blur(.2em);
+}
+/* // Cards Header Section */
+.adminPage>.container>.card>i{
+    position: absolute;
+    left: .3em;
+    top: .15em;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #c0392b;
+    transition: .8s;
+}
+.adminPage>.container>.card>p{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    width: 100%;
+    text-transform: capitalize;
+    user-select: none;
+    display: none;
+}
+.adminPage>.container>.card>.edit{
+    position: absolute;
+    right: .3em;
+    top: .3em;
+    color: white;
+    cursor: pointer;
+    transition: all .8s ease-in-out;
+}
+.adminPage>.container>.card>.edit.blurred{
+    cursor: auto;
+}
+.adminPage>.container>.card>.edit>i{
+    font-size: 1.2em;
+}
+.adminPage>.container>.card .edit input{
+    display: none;
+}
+.adminPage>.container>.card>h3{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 25%;
+    transform: translateY(-45%);
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.adminPage>.container>.card>.image{
+    background: black;
+    width: 100%;
+    height: 11.25em;
+    overflow: hidden;
+}
+.adminPage>.container>.card img{
+    width: 100%;
+}
+/* // Cards Content Section */
+.adminPage>.container>.card>.card-content{
+    position: absolute;
+    top: 58%;
+    margin-left: .6em;
+}
+.adminPage>.container>.card>.card-content>p:nth-of-type(1){
+    padding: 0 .2em;
+    width:fit-content;
+    background: black;
+    color:white;
+    font-weight:900;
+}
+.adminPage>.container>.card>.show-dates{
+    position: absolute;
+    bottom: .3em;
+    border: .07em solid black;
+    border-radius: 3em;
+    height: 2em;
+    font-size: 1em;
+    text-transform: capitalize;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color .6s ease-in-out, color .6s ease-in-out, filter .6s ease-in-out, width .2s ease-in-out;
+}
+.adminPage>.container>.card>.show-dates.show{
+    border-color: white;
+    color: white;
+    filter: blur(0);
+}
+.adminPage>.container>.card>.show-dates>i{
+    position: absolute;
+    top: .4em;
+    right: .3em;
+    margin-left: .2em;
+    margin-right: .2em;
+}
+.adminPage>.container>.card>.show-dates>i::after{
+    content: attr(data-value);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-3.15em);
+    font-family: 'Livvic', sans-serif;
+}
+.adminPage>.container>.card>button{
+    position: absolute;
+    bottom: .3em;
+    width: auto;
+    height: 2em;
+    padding: 0 .6em;
+    background: transparent;
+    border: .07em solid white;
+    color: white;
+    border-radius: 3em;
+    text-transform: capitalize;
+    font-size: 1em;
+    cursor: pointer;
+    visibility: hidden;
+    transition-property: visibility;
+    transition-delay: .2s;
+}
+.adminPage>.container>.card>button:disabled{
+    cursor: not-allowed;
+    color: gray;
+}
+.adminPage>.container>.card>button.show{
+    filter: blur(0);
+    visibility: visible;
+    transition: background .5s ease-in-out, color .5s ease-in-out;
+}
+.adminPage>.container>.card>button.show:hover{
+    color: black;
+    background: white;
+}
+/* // Day Picker Adjustments */
+.adminPage .DayPicker.Selectable{
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: white;
+    box-shadow: .4em .4em 1em rgba(0, 0, 0, .5);
+    transition: all .5s ease-in-out;
+    height: 86%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.adminPage .DayPicker.Selectable::-webkit-scrollbar{
+    width: .5em;
+}
+.adminPage .DayPicker.Selectable::-webkit-scrollbar-thumb{
+    background: #45aaf2;
+    border-radius: .5em;
+}
+.adminPage .DayPicker.Selectable.show{
+    top: 0;
+    filter: blur(0);
+}
+.adminPage .DayPicker--interactionDisabled.Selectable{
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: white;
+    box-shadow: .4em .4em 1em rgba(0, 0, 0, .5);
+    transition: all .5s ease-in-out;
+}
+.adminPage .DayPicker.DayPicker--interactionDisabled.Selectable.show{
+    top: 0;
+    filter: blur(0);
+}
+.adminPage .DayPicker-Day--disabled{
+    color: #778796 !important;
+}
+.adminPage .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end) {
+    background-color: #cfe8ff !important;
+    color: #4a90e2;
+}
+.adminPage .DayPicker-Day--outside{
+    color: #c1cad4 !important;
+}
+.adminPage .Selectable .DayPicker-Day {
+    border-radius: 0 !important;
+}
+.adminPage .Selectable .DayPicker-Day--start {
+    visibility: visible;
+    background: linear-gradient(to right,#45aaf2 60%, #cfe8ff)!important;
+    color: white !important;
+    border-top-left-radius: 50% !important;
+    border-bottom-left-radius: 50% !important;
+}
+.adminPage .Selectable .DayPicker-Day--end {
+    visibility: visible;
+    background: linear-gradient(to left,#45aaf2 60%, #cfe8ff)!important;
+    color: white !important;
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
+}
+.adminPage .DayPicker-Day.DayPicker-Day--disabled.DayPicker-Day--today{
+    color: #c0392b !important;
+}
+.adminPage .DayPicker-Day.DayPicker-Day--today.DayPicker-Day--outside{
+    color: #c0392b !important;
+}
+/* Different Medias */
+@media (min-width:320px){
+    .adminPage>header{
+        width: 100%;
+        height: 5%;
+    }
+    .adminPage>.container{
+        height: 88%;
+    }
+    .adminPage>header>p>i{
+        outline: none;
+        display: inline-block;
+        padding: .1em;
+        border: .2em solid #45aaf2;
+        border-radius: 50%;
+        box-shadow:.2em .2em .3em gray;
+        margin-left: .2em;
+    }
+    .adminPage>header>.search{
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .adminPage>header>.search>input{
+        width: 61%;
+    }
+    .adminPage>header>.search>button{
+        position: relative;
+        margin-top: .6em;
+        margin-bottom: .6em;
+    }
+    .adminPage>header>.search>i{
+        position: absolute;
+        display: inline-block;
+        top: 15%;
+        right: 5%;
+        font-size: 1.7em;
+        color: white;
+    }
+    .adminPage .card{
+        margin: 0;
+        width: 100%;
+        height: 42%;
+    }
+    .adminPage .card>.show-dates{
+        width: 5em;
+        right: 1em;
+    }
+    .adminPage>.container>.card>button{
+        left: 1em;
+    }
+    .adminPage .card .DayPicker.DayPicker--interactionDisabled.Selectable{
+        width: 78%;
+    }
+}
+@media (min-width:480px){
+    .adminPage .card{
+        margin: .5%;
+        width: 48%;
+    }
+    .adminPage>header>.search>i{
+        top: 60%;
+        right: 2.5%;
+    }
+    .adminPage .card>.show-dates{
+        right: .85em;
+    }
+    .adminPage>.container>.card>button{
+        left: .85em;
+    }
+    .adminPage .card .DayPicker.Selectable.show{
+        width: 100%;
+    }
+    .adminPage .card .DayPicker.Selectable.show .DayPicker-wrapper{
+        transform: scale(.9);
+    }
+}
+@media (min-width: 600px){
+    .adminPage>header{
+        height: 12%;
+    }
+    .adminPage>.container{
+        height: 88%;
+    }
+    .adminPage>header>p>i{
+        display: none;
+    }
+    .adminPage>header>.search{
+        display: block;
+        width: 50%;
+        left: 30%;
+        text-align: center;
+    }
+    .adminPage>header>.search>button{
+        position: relative;
+        margin-top: .6em;
+        margin-bottom: .6em;
+    }
+    .adminPage>header>.search>input{
+        width: 65%;
+    }
+    .adminPage>header>.search>i{
+        width: 0;
+        display: none;
+    }
+    .adminPage .card>.show-dates{
+        right: 1em;
+    }
+    .adminPage>.container>.card>button{
+        left: 1em;
+    }
+    .adminPage .card .DayPicker.Selectable.show{
+        width: 90%;
+    }
+    .adminPage .card .DayPicker.Selectable.show .DayPicker-wrapper{
+        transform: scale(1);
+    }
+}
+@media (min-width: 801px){
+    .adminPage .card>.show-dates{
+        right: 1.5em;
+    }
+    .adminPage>.container>.card>button{
+        left: 1.5em;
+    }
+}
+@media (min-width: 1025px){
+    .adminPage>header>.search{
+        width: 40%;
+    }
+    .adminPage .card>.show-dates{
+        width: 2em;
+    }
+    .adminPage>.container>.card>.show-dates:hover{
+        width: 5em;
+    }
+    .adminPage .card{
+        width: 30%;
+    }
+    .adminPage>.container>.card>i{
+        opacity: 0;
+    }
+    .adminPage>.container>.card:hover>i{
+        opacity: 1;
+    }
+}
+@media (min-width: 1281px){
+    .adminPage>header>.search{
+        width: 50%;
+        left: 12%;
+    }
+    .adminPage .card{
+        width: 22%;
+    }
+    .adminPage>.container>.card img{
+        width: 115%;
+    }
+}
+/* Animations & Transitions @ Medias*/
+@media (min-width:320px){
+    .adminPage>header.searchMode{
+        height: 12%;
+    }
+    .adminPage>header>p.searchMode{
+        opacity: 0;
+    }
+    .adminPage>header>a.searchMode{
+        opacity: 0;
+    }
+    .adminPage>header>.search.searchMode{
+        display: block;
+    }
+}

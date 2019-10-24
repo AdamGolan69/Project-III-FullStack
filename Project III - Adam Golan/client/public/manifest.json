@@ -1,0 +1,11 @@
+{
+  "short_name": "VK",
+  "name": "VeyKay",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
